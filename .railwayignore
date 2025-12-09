@@ -1,0 +1,16 @@
+node_modules/
+.git/
+.vscode/
+.idea/
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+

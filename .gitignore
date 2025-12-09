@@ -1,0 +1,32 @@
+# Backend
+backend/**/bin/
+backend/**/obj/
+backend/**/.vs/
+backend/**/*.user
+backend/**/*.suo
+backend/**/*.cache
+
+# Frontend
+frontend/stackhabit-app/node_modules/
+frontend/stackhabit-app/dist/
+frontend/stackhabit-app/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
