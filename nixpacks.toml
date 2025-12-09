@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["dotnet-sdk_8"]
+
+[phases.install]
+cmds = ["dotnet restore backend/StackHabit.API/StackHabit.API.csproj"]
+
+[phases.build]
+cmds = ["dotnet publish backend/StackHabit.API/StackHabit.API.csproj --configuration Release --no-restore -o backend/StackHabit.API/out"]
+
+[start]
+cmd = "./backend/StackHabit.API/out/StackHabit.API --urls http://0.0.0.0:$PORT"
+
