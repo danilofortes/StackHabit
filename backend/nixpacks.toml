@@ -2,7 +2,7 @@
 nixPkgs = ["dotnet-sdk_8"]
 
 [phases.install]
-cmds = ["dotnet restore StackHabit.API/StackHabit.API.csproj"]
+cmds = ["dotnet restore StackHabit.sln"]
 
 [phases.build]
 cmds = ["dotnet publish StackHabit.API/StackHabit.API.csproj --configuration Release --no-restore -o StackHabit.API/out"]
