@@ -18,7 +18,12 @@
 
 #### Desenvolvimento Local
 
-O backend já está configurado para usar `appsettings.Development.json` que contém a connection string do Railway.
+O backend está configurado para usar `appsettings.Development.json` com um banco local por padrão.
+
+**⚠️ IMPORTANTE sobre DATABASE_PUBLIC_URL:**
+- O Railway avisa que `DATABASE_PUBLIC_URL` gera **custos de egress** (tráfego de saída)
+- Para desenvolvimento local, prefira usar um banco PostgreSQL local
+- Use `DATABASE_PUBLIC_URL` apenas quando necessário testar com o banco do Railway
 
 **Opções para usar variáveis de ambiente localmente:**
 

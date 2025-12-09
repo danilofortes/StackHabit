@@ -26,14 +26,21 @@ Certifique-se de que seu código está no GitHub.
 
 O Railway já fornece as variáveis de ambiente automaticamente quando você adiciona um serviço PostgreSQL:
 
-- `DATABASE_URL`: URL interna do banco (para uso dentro do Railway)
-- `DATABASE_PUBLIC_URL`: URL pública externa (para desenvolvimento local)
+- `DATABASE_URL`: URL **privada** do banco (para uso dentro do Railway - **SEM custos de egress**)
+- `DATABASE_PUBLIC_URL`: URL pública externa (para desenvolvimento local - **gera custos de egress**)
+
+**⚠️ IMPORTANTE:**
+- **Produção (Railway)**: Use sempre `DATABASE_URL` (endpoint privado, sem custos)
+- **Desenvolvimento Local**: Use `DATABASE_PUBLIC_URL` apenas se necessário (gera custos de egress)
 
 **Variáveis do seu banco:**
 ```
-DATABASE_URL=postgresql://postgres:LHvagBFtTCIxDagScbDMLyhDjvumbroW@postgres.railway.internal:5432/railway
-DATABASE_PUBLIC_URL=postgresql://postgres:LHvagBFtTCIxDagScbDMLyhDjvumbroW@shortline.proxy.rlwy.net:35094/railway
+DATABASE_URL=postgresql://postgres:password@postgres.railway.internal:5432/railway
+DATABASE_PUBLIC_URL=postgresql://postgres:password@shortline.proxy.rlwy.net:35094/railway
 ```
+
+**💡 Recomendação:**
+Para desenvolvimento local, use um banco PostgreSQL local ou configure `DATABASE_URL` no `appsettings.Development.json` apenas quando necessário testar com o banco do Railway.
 
 ### 4. Adicionar Serviço Backend
 
@@ -148,7 +155,8 @@ dotnet ef database update
 ### Erro de conexão com banco
 - Verifique se a connection string do Railway está correta
 - Verifique se o serviço PostgreSQL está rodando no Railway
-- Para desenvolvimento local, use `DATABASE_PUBLIC_URL` no `appsettings.Development.json`
+- Para desenvolvimento local, use um banco PostgreSQL local (recomendado)
+- ⚠️ Evite usar `DATABASE_PUBLIC_URL` - gera custos de egress
 
 ## 💰 Custos
 
