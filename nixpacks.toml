@@ -2,10 +2,10 @@
 nixPkgs = ["dotnet-sdk_8"]
 
 [phases.install]
-cmds = ["cd backend/StackHabit.API && dotnet restore StackHabit.API.csproj"]
+cmds = ["cd backend/StackHabit.API && dotnet restore"]
 
 [phases.build]
-cmds = ["cd backend/StackHabit.API && dotnet publish StackHabit.API.csproj --configuration Release --no-restore -o out"]
+cmds = ["cd backend/StackHabit.API && dotnet publish --configuration Release --no-restore -o out"]
 
 [start]
 cmd = "cd backend/StackHabit.API/out && ./StackHabit.API --urls http://0.0.0.0:$PORT"
