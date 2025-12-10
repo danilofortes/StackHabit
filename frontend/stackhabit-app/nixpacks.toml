@@ -2,11 +2,11 @@
 nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = ["cd frontend/stackhabit-app && npm ci"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["cd frontend/stackhabit-app && npm run build"]
 
 [start]
-cmd = "npm run preview"
+cmd = "cd frontend/stackhabit-app && npm run preview"
 
